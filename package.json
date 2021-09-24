@@ -1,13 +1,13 @@
 {
   "name": "sticker",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "lib/element-ui.common.js",
   "license": "MIT",
   "scripts": {
     "build:file": "node build/bin/build-entry.js",
     "build:css": "node build/bin/gen-cssfile && npx gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
     "watch:sass": "sass --watch packages/theme-chalk/src:test/css",
-    "build": "npm run build:css && npm run build:file && webpack --config build/webpack.common.js"
+    "build": "npm run build:css && npm run build:file && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js"
 
   },
   "devDependencies": {

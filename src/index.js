@@ -23,6 +23,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.1.4',
-  install
+  version: '1.1.5',
+  install,
+    Button,
+  Alert
 };

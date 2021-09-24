@@ -32,7 +32,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   version: '{{version}}',
-  install
+  install,
+  {{list}}
 };
 `;
 var ComponentNames = Object.keys(Components);
