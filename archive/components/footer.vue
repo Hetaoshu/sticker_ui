@@ -15,5 +15,6 @@ export default {
     width: 100vw;
     height: 200px;
     background: rgb(99, 84, 235);
+    font-size: .2rem;
 }
 </style>

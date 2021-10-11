@@ -1,6 +1,6 @@
 <template>
   <div class="index-box" >
-    <img src="../../assets/images/rr.gif" alt="" srcset="">
+    <span>组件</span>
   </div>
 </template>
 
@@ -22,6 +22,6 @@ export default {
   width: 100vw;
   background: #fff;
   margin-top: 80px;
-  font-size: .2rem;
+  font-size: 50px;
 }
 </style>
