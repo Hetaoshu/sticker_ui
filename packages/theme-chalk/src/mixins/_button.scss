@@ -1,4 +1,5 @@
 @import "../common/var";
+@import "../common/animations.scss";
 @mixin button-plain($color) {
   color: $color;
   background: mix($--color-white, $color, 90%);
@@ -12,8 +13,8 @@
   }
 
   &:active {
-    background: mix($--color-black, $color, $--button-active-shade-percent);
-    border-color: mix($--color-black, $color, $--button-active-shade-percent);
+    background: mix($--color-black, $color, 10%);
+    border-color: mix($--color-black, $color, 10%);
     color: $--color-white;
     outline: none;
   }
@@ -23,34 +24,35 @@
     &:hover,
     &:focus,
     &:active {
-      color: mix($--color-white, $color, 40%);
-      background-color: mix($--color-white, $color, 90%);
-      border-color: mix($--color-white, $color, 80%);
+      color: $--font-disabled-gray;
+      background-color: $--color-white;
+      border-color: $--font-disabled-gray;
+      cursor:not-allowed;
     }
   }
 }
-@mixin button-variant($color, $background-color, $border-color) {
+@mixin button-color($color, $background-color, $border-color) {
     color: $color;
     background-color: $background-color;
     border-color: $border-color;
   
     &:hover,
     &:focus {
-      background: mix($--color-white, $background-color, $--button-hover-tint-percent);
-      border-color: mix($--color-white, $border-color, $--button-hover-tint-percent);
+      background: mix($--color-white, $background-color, 30%);
+      border-color: mix($--color-white, $border-color, 30%);
       color: $color;
     }
     
     &:active {
-      background: mix($--color-black, $background-color, $--button-active-shade-percent);
-      border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
+      background: mix($--color-white, $background-color, 60%);
+      border-color: mix($--color-white, $border-color, 60%);
       color: $color;
       outline: none;
     }
   
     &.is-active {
-      background: mix($--color-black, $background-color, $--button-active-shade-percent);
-      border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
+      background: mix($--color-black, $background-color, 10%);
+      border-color: mix($--color-black, $border-color, 10%);
       color: $color;
     }
   
@@ -59,14 +61,23 @@
       &:hover,
       &:focus,
       &:active {
-        color: $--color-white;
-        background-color: mix($background-color, $--color-white);
-        border-color: mix($border-color, $--color-white);
+        color: $--font-disabled-gray;
+        background-color: $--color-disabled-gray;
+        border-color: transparent;
+        cursor:not-allowed;
       }
     }
   
     &.is-plain {
       @include button-plain($background-color);
+    }
+    .st-ripples-append{
+      position: absolute;
+      background:  mix($--color-white, $background-color, 60%);
+      transform:translate(-50%,-50%);
+      pointer-events: none;
+      border-radius: 50%;
+      animation: st-ripples-ani .7s linear infinite;
     }
   }
 
@@ -76,5 +87,53 @@
     border-radius: $border-radius;
     &.is-round {
       padding: $padding-vertical $padding-horizontal;
+    }
+    .st-loader{
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: $padding-vertical*2+$font-size;
+      width: $padding-horizontal*2+$font-size;
+      .st-dot{
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: $padding-vertical*2+$font-size;
+        width: $padding-horizontal*2+$font-size;
+        animation: animate-loading 3s linear infinite;
+        &::before {
+            position: absolute;
+            content: "";
+            background-color: rgb(166,166,166);
+            width: 3px;
+            height: 3px;
+            bottom: 6px;
+            left: calc(50% - 5px);
+            border-radius: 50%;
+        }
+        &:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        &:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        &:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        
+        &:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+ 
+      }
+
     }
   }

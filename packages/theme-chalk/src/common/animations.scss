@@ -1,0 +1,30 @@
+@keyframes animate-loading {
+
+    74%{
+        transform: rotate(600deg);
+    }
+    79% {
+        transform: rotate(720deg);
+        opacity: 1;
+    }
+    80% {
+        transform: rotate(720deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(810deg);
+        opacity: 0;
+    }
+}
+@keyframes st-ripples-ani {
+    0%{
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100%{
+        width: 800px;
+        height: 800px;
+        opacity:0;
+    }
+}

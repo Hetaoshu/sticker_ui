@@ -1,27 +1,29 @@
 <template>
   <button
-    class="el-button"
+    class="st-button"
     @click="handleClick"
     :disabled="buttonDisabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
     :class="[
-      type ? 'el-button--' + type : '',
-      buttonSize ? 'el-button--' + buttonSize : '',
+      type ? 'st-button--' + type : '',
+      buttonSize ? 'st-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
-        'is-loading': loading,
         'is-plain': plain,
         'is-round': round,
         'is-circle': circle
       }
     ]"
   >
-
-    <span v-if="$slots.default"><slot></slot></span>
+    <div class="st-loader" v-if="loading" >
+            <span class="st-dot" v-for="(items,index) in 7" :key="index" ></span>
+    </div>
+    <span :style="{opacity:loading?0:1}" v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 <script>
+
 // export default :
 module.exports = {
     name: 'ElButton',
@@ -33,7 +35,19 @@ module.exports = {
         default: ''
       }
     },
-
+    data(){
+      return{
+      }
+    },
+    // watch:{
+    //   loading:{
+    //     immediate:true,
+    //     handler(news){
+         
+          
+    //     }
+    //   }
+    // },
     props: {
       type: {
         type: String,
@@ -70,6 +84,17 @@ module.exports = {
 
     methods: {
       handleClick(evt) {
+        //生成水波纹效果
+        let x = evt.clientX - evt.target.offsetLeft;
+        let y = evt.clientY - evt.target.offsetTop;
+        let ripples = document.createElement('span');
+        ripples.style.left = x + 'px';
+        ripples.style.top = y + 'px';
+        ripples.className = 'st-ripples-append'
+        evt.target.appendChild(ripples);
+        setTimeout(() => {
+          ripples.remove()
+        }, 600);
         this.$emit('click', evt);
       }
     }

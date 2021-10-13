@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@import "./var.scss";
+@import "../mixins/utils.scss";
+%default-button{
+    display: inline-block;
+    position: relative;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    background: $--color-primary;
+    border: $--color-primary;
+    border-color: $--color-primary;
+    color: $--color-white;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    border: 1px solid;
+    @include utils-user-select(none);
+    &::-moz-focus-inner {
+      border: 0;
+    }
+    & + & {
+      margin-left: 10px;
+    }
+    & [class*="el-icon-"] {
+      & + span {
+        margin-left: 5px;
+      }
+    }
+    &:hover,
+    &:focus {
+      color: $--color-white;
+      border-color: $--color-primary-deep;
+      background-color: $--color-primary-deep;
+    }
+  
+    &:active {
+      color: $--color-white;
+      border-color: $--primary-mix-3;
+      background-color: $--primary-mix-3;
+      outline: none;
+    }
+
+  }

@@ -19,9 +19,9 @@ export default {
         return{
             navData:[
                 {name:'概览',key:'genaral',path:'/zh'},
-                {name:'组件',key:'genaral',path:'zh/component'},
-                {name:'更新记录',key:'genaral',path:'zh/component'},
-                {name:'关于',key:'genaral',path:'zh/component'},
+                {name:'组件列表',key:'genaral',path:'/zh/component'},
+                {name:'反馈',key:'genaral',path:'/zh/feedback'},
+                {name:'关于',key:'genaral',path:'/zh/about'},
             ]
         }
     },

@@ -8,13 +8,28 @@
     <title>play</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://unpkg.com/http-vue-loader"></script>
+    <style>
+        #app{
+            height: 200px;
+            width: 600px;
+            border: 1px solid red;
+            margin-left: 40%;
+            margin-top: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <el-button type="warning" size="mini" >按钮</el-button>
-        <span class="st-icon-loading" ></span>
+        <el-button  type="success"  @click="test" >很长出生地按钮</el-button>
+        <el-button disabled type="warning" size="small" round >按钮1</el-button>
+        <el-button :loading="loadingStatus" type="text" size="mini"  >mini</el-button>
+        <!-- <span class="st-icon-loading" ></span>
         <el-alert :show="show" ></el-alert>
-        <button @click="change" >切换</button>
+        <button @click="change" >切换</button> -->
     </div>
 </body>
 <script type="text/javascript" >
@@ -22,6 +37,7 @@
     var app = new Vue({
         el:'#app',
         data:{
+            loadingStatus:false,
             msg:'hellow',
             show:true
         },
@@ -32,6 +48,12 @@
         methods:{
             change(){
                 this.show = !this.show
+            },
+            test(){
+                this.loadingStatus = true;
+                setTimeout(()=>{
+                    this.loadingStatus = false;
+                },2000)
             }
         }
     })

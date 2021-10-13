@@ -1,6 +1,11 @@
 <template>
-  <div class="index-box" >
-    <span>组件</span>
+  <div class="compenents-box" >
+    <div class="side-bar">
+       <el-button type="warning" size="mini" >按钮</el-button>
+    </div>
+    <div class="right-content" >
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -15,13 +20,21 @@ export default {
 }
 </script>
 
-<style>
-.index-box{
+<style scoped lang="scss" >
+.compenents-box{
   box-sizing: border-box;
-  height: 700px;
-  width: 100vw;
-  background: #fff;
-  margin-top: 80px;
-  font-size: 50px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 5px 100px;
+  display: flex;
+  .side-bar{
+    border-right: 1px solid rgb(222,222,222);
+    width: 15%;
+    min-height: 100vh;
+  }
+  .right-content{
+    width: 85%;
+    min-height: 100vh;
+  }
 }
 </style>

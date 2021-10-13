@@ -12,9 +12,10 @@ export default {
 
 <style  lang="scss" scoped >
 .archive-footer{
-    width: 100vw;
+    box-sizing: border-box;
     height: 200px;
     background: rgb(99, 84, 235);
-    font-size: .2rem;
+    margin: 0;
+    padding: 0;
 }
 </style>

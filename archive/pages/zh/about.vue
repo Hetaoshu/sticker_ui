@@ -1,6 +1,7 @@
 <template>
   <div class="index-box" >
-    <img class="img" src="../../assets/images/rr.gif" alt="" srcset="">
+    <span>关于</span>
+    <router-view/>
   </div>
 </template>
 
@@ -20,11 +21,9 @@ export default {
   box-sizing: border-box;
   height: 700px;
   background: #fff;
-  border: 1px solid blue;
   margin-top: 80px;
-}
-.img{
-  width: 800px;
-
+  font-size: 50px;
+  color: red;
+  font-weight: 600;
 }
 </style>

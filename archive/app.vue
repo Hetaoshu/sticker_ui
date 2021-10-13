@@ -28,3 +28,9 @@
     }
   };
 </script>
+<style scoped>
+.archive-container{
+  box-sizing: border-box;
+  margin-top: 80px;
+}
+</style>
