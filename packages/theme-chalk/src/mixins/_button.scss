@@ -5,17 +5,15 @@
   background: mix($--color-white, $color, 90%);
   border-color: mix($--color-white, $color, 60%);
 
-  &:hover,
-  &:focus {
-    background: $color;
-    border-color: $color;
-    color: $--color-white;
+  &:hover
+  {
+    border-color: mix($--color-black, $color, 30%);
   }
 
   &:active {
-    background: mix($--color-black, $color, 10%);
+    // background: mix($--color-black, $color, 10%);
     border-color: mix($--color-black, $color, 10%);
-    color: $--color-white;
+    // color: $--color-white;
     outline: none;
   }
 
@@ -31,25 +29,17 @@
     }
   }
 }
-@mixin button-color($color, $background-color, $border-color) {
+@mixin button-color($color, $background-color, $border-color,$background-deep) {
     color: $color;
     background-color: $background-color;
     border-color: $border-color;
   
-    &:hover,
-    &:focus {
-      background: mix($--color-white, $background-color, 30%);
-      border-color: mix($--color-white, $border-color, 30%);
+    &:hover {
+      background: $background-deep;
+      border-color: $background-deep;
       color: $color;
     }
     
-    &:active {
-      background: mix($--color-white, $background-color, 60%);
-      border-color: mix($--color-white, $border-color, 60%);
-      color: $color;
-      outline: none;
-    }
-  
     &.is-active {
       background: mix($--color-black, $background-color, 10%);
       border-color: mix($--color-black, $border-color, 10%);
@@ -72,12 +62,20 @@
       @include button-plain($background-color);
     }
     .st-ripples-append{
+      height: 40px;
+      width: 50px;
       position: absolute;
       background:  mix($--color-white, $background-color, 60%);
       transform:translate(-50%,-50%);
       pointer-events: none;
       border-radius: 50%;
-      animation: st-ripples-ani .7s linear infinite;
+      animation: st-ripples-ani .7s ease-in-out;
+    }
+    //加载动画颜色
+    .st-loader>.st-dot{
+          &::before {
+            background-color: mix($--color-white, $background-color, 35%)!important;
+        }
     }
   }
 
@@ -105,7 +103,6 @@
         &::before {
             position: absolute;
             content: "";
-            background-color: rgb(166,166,166);
             width: 3px;
             height: 3px;
             bottom: 6px;

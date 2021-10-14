@@ -10,23 +10,91 @@
     <script src="https://unpkg.com/http-vue-loader"></script>
     <style>
         #app{
-            height: 200px;
-            width: 600px;
-            border: 1px solid red;
-            margin-left: 40%;
             margin-top: 10%;
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
+
         }
+        .group{
+                margin-top: 10px;
+            }
     </style>
 </head>
 <body>
     <div id="app">
-        <el-button  type="success"  @click="test" >很长出生地按钮</el-button>
-        <el-button disabled type="warning" size="small" round >按钮1</el-button>
-        <el-button :loading="loadingStatus" type="text" size="mini"  >mini</el-button>
+        <div class="group" >
+            <el-button  :loading="true" shadow  type="acent"  size="medium"  >阴影按钮</el-button>
+            <el-button @click="test" :loading="loadingStatus" shadow  type="acent"  size="medium"  >阴影按钮</el-button>
+            <el-button  icon="st-icon-edit" shadow  type="dark"  size="medium"  >阴影按钮</el-button>
+            <el-button   shadow  type="danger"  size="medium"  >阴影按钮</el-button>
+            <el-button shadow type="primary" size="medium"  >阴影按钮</el-button>
+            <el-button shadow type="success" size="medium"  >阴影按钮</el-button>
+            <el-button shadow type="warning" size="medium"  >阴影按钮</el-button>
+            <el-button shadow type="info" size="medium"  >阴影按钮</el-button>
+        </div>
+        <div class="group" >
+            <el-button   type="success"  size="medium" :loading="true"  >危险按钮</el-button>
+            <el-button   type="dark"  size="medium"  >危险按钮</el-button>
+            <el-button   type="acent" size="medium"  >危险按钮</el-button>
+            <el-button  type="danger"  size="medium"  >危险按钮</el-button>
+            <el-button  type="primary" size="medium"  >危险按钮</el-button>
+            <el-button  type="success" size="medium"  >危险按钮</el-button>
+            <el-button  type="warning" size="medium"  >危险按钮</el-button>
+            <el-button  type="info" size="medium"  >危险按钮</el-button>
+        </div>
+        <div class="group" >
+            <el-button  type="acent"  @click="test" plain :loading="true"  >朴素按钮</el-button>
+            <el-button  type="dark"  @click="test" plain >朴素按钮</el-button>
+            <el-button  type="acent"  @click="test" plain >朴素按钮</el-button>
+            <el-button  type="success"  @click="test" plain >朴素按钮</el-button>
+            <el-button  type="primary"  @click="test" plain >朴素按钮</el-button>
+            <el-button  type="danger"  @click="test" plain >朴素按钮</el-button>
+            <el-button  type="warning"  @click="test" plain >朴素按钮</el-button>
+            <el-button  type="info"  @click="test" plain >朴素按钮</el-button>
+        </div>
+        <div class="group" >
+            <el-button  :loading="true" type="danger"  @click="test" plain round >朴素圆角</el-button>
+            <el-button   type="dark"  @click="test" plain round >朴素圆角</el-button>
+            <el-button   type="acent"  @click="test" plain round >朴素圆角</el-button>
+            <el-button  type="success"  @click="test" plain round >朴素圆角</el-button>
+            <el-button  type="primary"  @click="test" plain round>朴素圆角</el-button>
+            <el-button  type="danger"  @click="test" plain round>朴素圆角</el-button>
+            <el-button  type="warning"  @click="test" plain round>朴素圆角</el-button>
+            <el-button  type="info" size="mini"  @click="test" plain round>朴素圆角</el-button>
+        </div>
+        <div class="group" >
+            <el-button   type="primary"  :loading="true" size="medium" round >危险按钮</el-button>
+            <el-button   type="dark" size="medium" round >危险按钮</el-button>
+            <el-button   type="acent" size="medium" round >危险按钮</el-button>
+            <el-button  type="danger" size="medium" round >危险按钮</el-button>
+            <el-button  type="primary" size="medium" round >危险按钮</el-button>
+            <el-button  type="success" size="medium" round >危险按钮</el-button>
+            <el-button  type="warning" size="medium" round >危险按钮</el-button>
+            <el-button  type="info" size="medium" round >危险按钮</el-button>
+        </div>
+
+        <div class="group" >
+            <el-button :loading="true" type="acent" size="mini"  >最小号按钮</el-button>
+            <el-button  type="success" size="medium"  >大号按钮</el-button>
+            <el-button  type="danger" size="small"  >小号按钮</el-button>
+            <el-button  type="primary" size="mini"  >最小号按钮</el-button>
+            <el-button :loading="loadingStatus" @click="test" type="text" size="mini"  >文本按钮</el-button>
+        </div>
+        <div class="group" >
+            <el-button disabled type="warning" size="small" plain >朴素禁用</el-button>
+            <el-button disabled type="warning" size="small" round >圆角禁用</el-button>
+            <el-button disabled type="warning" size="small"  >标准禁用</el-button>
+        </div>
+        <div class="group" >
+            <el-button :loading="true"  type="warning" size="small" circle >载</el-button>
+            <el-button @click="test" :loading="loadingStatus"  disabled type="warning" size="small" circle >圆</el-button>
+            <el-button  type="warning" size="small" circle >角</el-button>
+            <el-button  type="success" size="small" circle >已</el-button>
+            <el-button disabled type="info" size="small" circle >禁</el-button>
+        </div>
         <!-- <span class="st-icon-loading" ></span>
         <el-alert :show="show" ></el-alert>
         <button @click="change" >切换</button> -->

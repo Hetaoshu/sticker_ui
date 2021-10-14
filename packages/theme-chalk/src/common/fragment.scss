@@ -17,7 +17,7 @@
     box-sizing: border-box;
     outline: none;
     margin: 0;
-    transition: .1s;
+    transition:.1s;
     border: 1px solid;
     @include utils-user-select(none);
     &::-moz-focus-inner {
@@ -31,18 +31,9 @@
         margin-left: 5px;
       }
     }
-    &:hover,
-    &:focus {
+    &:hover{
       color: $--color-white;
       border-color: $--color-primary-deep;
       background-color: $--color-primary-deep;
     }
-  
-    &:active {
-      color: $--color-white;
-      border-color: $--primary-mix-3;
-      background-color: $--primary-mix-3;
-      outline: none;
-    }
-
   }

@@ -2,6 +2,8 @@
   <button
     class="st-button"
     @click="handleClick"
+    @mousedown="handleMousedown"
+    @mouseup="handleMouseup"
     :disabled="buttonDisabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
@@ -12,14 +14,17 @@
         'is-disabled': buttonDisabled,
         'is-plain': plain,
         'is-round': round,
-        'is-circle': circle
+        'is-circle': circle,
+        'is-shadow':shadow
       }
     ]"
   >
+    <span :class="icon" v-if="iconPosition == 'left' " ></span>
     <div class="st-loader" v-if="loading" >
             <span class="st-dot" v-for="(items,index) in 7" :key="index" ></span>
     </div>
-    <span :style="{opacity:loading?0:1}" v-if="$slots.default"><slot></slot></span>
+    <span :style="{opacity:loading?0:1,'pointer-events': 'none'}" v-if="$slots.default"><slot></slot></span>
+    <span :class="icon" v-if="iconPosition == 'right' " ></span>
   </button>
 </template>
 <script>
@@ -39,15 +44,6 @@ module.exports = {
       return{
       }
     },
-    // watch:{
-    //   loading:{
-    //     immediate:true,
-    //     handler(news){
-         
-          
-    //     }
-    //   }
-    // },
     props: {
       type: {
         type: String,
@@ -62,12 +58,17 @@ module.exports = {
         type: String,
         default: 'button'
       },
+      iconPosition: {
+        type: String,
+        default: 'left'
+      },
       loading: Boolean,
       disabled: Boolean,
       plain: Boolean,
       autofocus: Boolean,
       round: Boolean,
-      circle: Boolean
+      circle: Boolean,
+      shadow:Boolean
     },
 
     computed: {
@@ -83,18 +84,28 @@ module.exports = {
     },
 
     methods: {
-      handleClick(evt) {
+      //鼠标按下
+      handleMousedown(evt){
+         if(this.ripplesTimer){
+          clearTimeout(this.ripplesTimer)
+          this.ripples.remove()
+          }
         //生成水波纹效果
         let x = evt.clientX - evt.target.offsetLeft;
         let y = evt.clientY - evt.target.offsetTop;
-        let ripples = document.createElement('span');
-        ripples.style.left = x + 'px';
-        ripples.style.top = y + 'px';
-        ripples.className = 'st-ripples-append'
-        evt.target.appendChild(ripples);
-        setTimeout(() => {
-          ripples.remove()
-        }, 600);
+        this.ripples = document.createElement('span');
+        this.ripples.style.left = x + 'px';
+        this.ripples.style.top = y + 'px';
+        this.ripples.className = 'st-ripples-append'
+        evt.target.appendChild(this.ripples);
+      },
+      handleMouseup(){
+        this.ripplesTimer = setTimeout(()=>{
+         this.ripples.remove();
+         clearTimeout(this.ripplesTimer)
+        },300)
+      },
+      handleClick(evt) {
         this.$emit('click', evt);
       }
     }

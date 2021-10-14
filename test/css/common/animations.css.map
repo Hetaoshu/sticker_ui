@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../../packages/theme-chalk/src/common/animations.scss"],"names":[],"mappings":"AAAA;EAEI;IACI;;EAEJ;IACI;IACA;;EAEJ;IACI;IACA;;EAEJ;IACI;IACA;;;AAGR;EACI;IACI;IACA;IACA;;EAEJ;IACI;IACA;IACA","file":"animations.css"}
+{"version":3,"sourceRoot":"","sources":["../../../packages/theme-chalk/src/common/animations.scss"],"names":[],"mappings":"AAAA;EAEI;IACI;;EAEJ;IACI;IACA;;EAEJ;IACI;IACA;;EAEJ;IACI;IACA;;;AAGR;EACI;IACI;IACA;IACA;;EAEJ;IACI;IACA;IACA;IACA;;;AAGR;EACI;IACI;;EAEJ;IACI","file":"animations.css"}

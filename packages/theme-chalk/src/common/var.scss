@@ -12,7 +12,7 @@ $--color-black: #000000 !default;
 $--color-success: #008655 !default;
 $--color-success-deep: #026341 !default;
 /// 提示颜色
-$--color-warning: #E6A23C !default;
+$--color-warning: 	#fb8c00 !default;
 $--color-warning-deep: #dd9426 !default;
 /// 警告颜色
 $--color-danger: #df161c !default;
@@ -20,9 +20,14 @@ $--color-danger-deep: #a0141a !default;
 /// 灰色颜色
 $--color-info: #909399 !default;
 $--color-info-deep: #9399a7 !default;
+/// 紫色颜色
+$--color-acent: #9c27b0 !default;
+$--color-acent-deep: #7d2a8b !default;
 ///禁用颜色
 $--color-disabled-gray:	#e4e4e4 !default;
-
+///黑色背景
+$--color-black-light:#1d1d1d;
+$--color-black-darker:#0e0d0d;
 //字体颜色
 $--font-disabled-gray:	#a1a1a1 !default;
 
@@ -68,7 +73,7 @@ $--font-color-disabled-base: #bbb !default;
 $--size-base: 14px !default;
 
 ///圆角相关
-$--border-radius-base:3px !default;
+$--border-radius-base:4px !default;
 
 /// fontSize||Font|1
 $--button-font-size: $--font-size-base !default;
@@ -83,17 +88,17 @@ $--button-padding-horizontal: 20px !default;
 //一般按钮
 $--button-medium-font-size: $--font-size-base !default;
 $--button-medium-border-radius: $--border-radius-base !default;
-$--button-medium-padding-vertical: 10px !default;
-$--button-medium-padding-horizontal: 25px !default;
+$--button-medium-padding-vertical: 8px !default;
+$--button-medium-padding-horizontal: 16px !default;
 //小按钮
 $--button-small-font-size: 12px !default;
 $--button-small-border-radius: #{$--border-radius-base - 1} !default;
-$--button-small-padding-vertical: 9px !default;
-$--button-small-padding-horizontal: 18px !default;
+$--button-small-padding-vertical: 8px !default;
+$--button-small-padding-horizontal: 14px !default;
 //mini按钮
 $--button-mini-font-size: 12px !default;
 $--button-mini-border-radius: #{$--border-radius-base - 1} !default;
-$--button-mini-padding-vertical: 7px !default;
+$--button-mini-padding-vertical: 6px !default;
 $--button-mini-padding-horizontal: 12px !default;
 
 

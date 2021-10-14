@@ -44,14 +44,23 @@
 }
 @keyframes st-ripples-ani {
   0% {
-    width: 0;
-    height: 0;
+    width: 50px;
+    height: 40px;
     opacity: 1;
   }
   100% {
     width: 800px;
     height: 800px;
     opacity: 0;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes st-scalIn-ani {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 /* BEM support Func
@@ -113,36 +122,24 @@
 .st-button [class*=el-icon-] + span {
   margin-left: 5px;
 }
-.st-button:hover, .st-button:focus {
+.st-button:hover {
   color: #FFFFFF;
   border-color: #2146a5;
   background-color: #2146a5;
-}
-.st-button:active {
-  color: #FFFFFF;
-  border-color: #698eee;
-  background-color: #698eee;
-  outline: none;
 }
 
 .st-button {
   color: #FFFFFF;
   background-color: #285de6;
   border-color: #285de6;
-  padding: 10px 25px;
+  padding: 8px 16px;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
-.st-button:hover, .st-button:focus {
-  background: #698eee;
-  border-color: #698eee;
+.st-button:hover {
+  background: #2146a5;
+  border-color: #2146a5;
   color: #FFFFFF;
-}
-.st-button:active {
-  background: #a9bef5;
-  border-color: #a9bef5;
-  color: #FFFFFF;
-  outline: none;
 }
 .st-button.is-active {
   background: #2454cf;
@@ -160,15 +157,11 @@
   background: #eaeffd;
   border-color: #a9bef5;
 }
-.st-button.is-plain:hover, .st-button.is-plain:focus {
-  background: #285de6;
-  border-color: #285de6;
-  color: #FFFFFF;
+.st-button.is-plain:hover {
+  border-color: #1c41a1;
 }
 .st-button.is-plain:active {
-  background: #2454cf;
   border-color: #2454cf;
-  color: #FFFFFF;
   outline: none;
 }
 .st-button.is-plain.is-disabled, .st-button.is-plain.is-disabled:hover, .st-button.is-plain.is-disabled:focus, .st-button.is-plain.is-disabled:active {
@@ -178,36 +171,40 @@
   cursor: not-allowed;
 }
 .st-button .st-ripples-append {
+  height: 40px;
+  width: 50px;
   position: absolute;
   background: #a9bef5;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  animation: st-ripples-ani 0.7s linear infinite;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button .st-loader > .st-dot::before {
+  background-color: #7396ef !important;
 }
 .st-button.is-round {
-  padding: 10px 25px;
+  padding: 8px 16px;
 }
 .st-button .st-loader {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 34px;
-  width: 64px;
+  height: 30px;
+  width: 46px;
 }
 .st-button .st-loader .st-dot {
   top: 0;
   left: 0;
   position: absolute;
-  height: 34px;
-  width: 64px;
+  height: 30px;
+  width: 46px;
   animation: animate-loading 3s linear infinite;
 }
 .st-button .st-loader .st-dot::before {
   position: absolute;
   content: "";
-  background-color: #a6a6a6;
   width: 3px;
   height: 3px;
   bottom: 6px;
@@ -231,7 +228,10 @@
 }
 .st-button.is-round {
   border-radius: 20px;
-  padding: 12px 23px;
+}
+
+.st-button.is-shadow {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 .st-button.is-circle {
@@ -244,16 +244,10 @@
   background-color: #285de6;
   border-color: #285de6;
 }
-.st-button--primary:hover, .st-button--primary:focus {
-  background: #698eee;
-  border-color: #698eee;
+.st-button--primary:hover {
+  background: #2146a5;
+  border-color: #2146a5;
   color: #FFFFFF;
-}
-.st-button--primary:active {
-  background: #a9bef5;
-  border-color: #a9bef5;
-  color: #FFFFFF;
-  outline: none;
 }
 .st-button--primary.is-active {
   background: #2454cf;
@@ -271,15 +265,11 @@
   background: #eaeffd;
   border-color: #a9bef5;
 }
-.st-button--primary.is-plain:hover, .st-button--primary.is-plain:focus {
-  background: #285de6;
-  border-color: #285de6;
-  color: #FFFFFF;
+.st-button--primary.is-plain:hover {
+  border-color: #1c41a1;
 }
 .st-button--primary.is-plain:active {
-  background: #2454cf;
   border-color: #2454cf;
-  color: #FFFFFF;
   outline: none;
 }
 .st-button--primary.is-plain.is-disabled, .st-button--primary.is-plain.is-disabled:hover, .st-button--primary.is-plain.is-disabled:focus, .st-button--primary.is-plain.is-disabled:active {
@@ -289,12 +279,17 @@
   cursor: not-allowed;
 }
 .st-button--primary .st-ripples-append {
+  height: 40px;
+  width: 50px;
   position: absolute;
   background: #a9bef5;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  animation: st-ripples-ani 0.7s linear infinite;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--primary .st-loader > .st-dot::before {
+  background-color: #7396ef !important;
 }
 
 .st-button--success {
@@ -302,16 +297,10 @@
   background-color: #008655;
   border-color: #008655;
 }
-.st-button--success:hover, .st-button--success:focus {
-  background: #4daa88;
-  border-color: #4daa88;
+.st-button--success:hover {
+  background: #026341;
+  border-color: #026341;
   color: #FFFFFF;
-}
-.st-button--success:active {
-  background: #99cfbb;
-  border-color: #99cfbb;
-  color: #FFFFFF;
-  outline: none;
 }
 .st-button--success.is-active {
   background: #00794d;
@@ -329,15 +318,11 @@
   background: #e6f3ee;
   border-color: #99cfbb;
 }
-.st-button--success.is-plain:hover, .st-button--success.is-plain:focus {
-  background: #008655;
-  border-color: #008655;
-  color: #FFFFFF;
+.st-button--success.is-plain:hover {
+  border-color: #005e3c;
 }
 .st-button--success.is-plain:active {
-  background: #00794d;
   border-color: #00794d;
-  color: #FFFFFF;
   outline: none;
 }
 .st-button--success.is-plain.is-disabled, .st-button--success.is-plain.is-disabled:hover, .st-button--success.is-plain.is-disabled:focus, .st-button--success.is-plain.is-disabled:active {
@@ -347,33 +332,32 @@
   cursor: not-allowed;
 }
 .st-button--success .st-ripples-append {
+  height: 40px;
+  width: 50px;
   position: absolute;
   background: #99cfbb;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  animation: st-ripples-ani 0.7s linear infinite;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--success .st-loader > .st-dot::before {
+  background-color: #59b091 !important;
 }
 
 .st-button--warning {
   color: #FFFFFF;
-  background-color: #E6A23C;
-  border-color: #E6A23C;
+  background-color: #fb8c00;
+  border-color: #fb8c00;
 }
-.st-button--warning:hover, .st-button--warning:focus {
-  background: #eebe77;
-  border-color: #eebe77;
+.st-button--warning:hover {
+  background: #dd9426;
+  border-color: #dd9426;
   color: #FFFFFF;
-}
-.st-button--warning:active {
-  background: #f5dab1;
-  border-color: #f5dab1;
-  color: #FFFFFF;
-  outline: none;
 }
 .st-button--warning.is-active {
-  background: #cf9236;
-  border-color: #cf9236;
+  background: #e27e00;
+  border-color: #e27e00;
   color: #FFFFFF;
 }
 .st-button--warning.is-disabled, .st-button--warning.is-disabled:hover, .st-button--warning.is-disabled:focus, .st-button--warning.is-disabled:active {
@@ -383,19 +367,15 @@
   cursor: not-allowed;
 }
 .st-button--warning.is-plain {
-  color: #E6A23C;
-  background: #fdf6ec;
-  border-color: #f5dab1;
+  color: #fb8c00;
+  background: #fff4e6;
+  border-color: #fdd199;
 }
-.st-button--warning.is-plain:hover, .st-button--warning.is-plain:focus {
-  background: #E6A23C;
-  border-color: #E6A23C;
-  color: #FFFFFF;
+.st-button--warning.is-plain:hover {
+  border-color: #b06200;
 }
 .st-button--warning.is-plain:active {
-  background: #cf9236;
-  border-color: #cf9236;
-  color: #FFFFFF;
+  border-color: #e27e00;
   outline: none;
 }
 .st-button--warning.is-plain.is-disabled, .st-button--warning.is-plain.is-disabled:hover, .st-button--warning.is-plain.is-disabled:focus, .st-button--warning.is-plain.is-disabled:active {
@@ -405,12 +385,17 @@
   cursor: not-allowed;
 }
 .st-button--warning .st-ripples-append {
+  height: 40px;
+  width: 50px;
   position: absolute;
-  background: #f5dab1;
+  background: #fdd199;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  animation: st-ripples-ani 0.7s linear infinite;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--warning .st-loader > .st-dot::before {
+  background-color: #fcb459 !important;
 }
 
 .st-button--danger {
@@ -418,16 +403,10 @@
   background-color: #df161c;
   border-color: #df161c;
 }
-.st-button--danger:hover, .st-button--danger:focus {
-  background: #e95c60;
-  border-color: #e95c60;
+.st-button--danger:hover {
+  background: #a0141a;
+  border-color: #a0141a;
   color: #FFFFFF;
-}
-.st-button--danger:active {
-  background: #f2a2a4;
-  border-color: #f2a2a4;
-  color: #FFFFFF;
-  outline: none;
 }
 .st-button--danger.is-active {
   background: #c91419;
@@ -445,15 +424,11 @@
   background: #fce8e8;
   border-color: #f2a2a4;
 }
-.st-button--danger.is-plain:hover, .st-button--danger.is-plain:focus {
-  background: #df161c;
-  border-color: #df161c;
-  color: #FFFFFF;
+.st-button--danger.is-plain:hover {
+  border-color: #9c0f14;
 }
 .st-button--danger.is-plain:active {
-  background: #c91419;
   border-color: #c91419;
-  color: #FFFFFF;
   outline: none;
 }
 .st-button--danger.is-plain.is-disabled, .st-button--danger.is-plain.is-disabled:hover, .st-button--danger.is-plain.is-disabled:focus, .st-button--danger.is-plain.is-disabled:active {
@@ -463,12 +438,17 @@
   cursor: not-allowed;
 }
 .st-button--danger .st-ripples-append {
+  height: 40px;
+  width: 50px;
   position: absolute;
   background: #f2a2a4;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  animation: st-ripples-ani 0.7s linear infinite;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--danger .st-loader > .st-dot::before {
+  background-color: #ea686b !important;
 }
 
 .st-button--info {
@@ -476,16 +456,10 @@
   background-color: #909399;
   border-color: #909399;
 }
-.st-button--info:hover, .st-button--info:focus {
-  background: #b1b3b8;
-  border-color: #b1b3b8;
+.st-button--info:hover {
+  background: #9399a7;
+  border-color: #9399a7;
   color: #FFFFFF;
-}
-.st-button--info:active {
-  background: #d3d4d6;
-  border-color: #d3d4d6;
-  color: #FFFFFF;
-  outline: none;
 }
 .st-button--info.is-active {
   background: #82848a;
@@ -503,15 +477,11 @@
   background: #f4f4f5;
   border-color: #d3d4d6;
 }
-.st-button--info.is-plain:hover, .st-button--info.is-plain:focus {
-  background: #909399;
-  border-color: #909399;
-  color: #FFFFFF;
+.st-button--info.is-plain:hover {
+  border-color: #65676b;
 }
 .st-button--info.is-plain:active {
-  background: #82848a;
   border-color: #82848a;
-  color: #FFFFFF;
   outline: none;
 }
 .st-button--info.is-plain.is-disabled, .st-button--info.is-plain.is-disabled:hover, .st-button--info.is-plain.is-disabled:focus, .st-button--info.is-plain.is-disabled:active {
@@ -521,42 +491,152 @@
   cursor: not-allowed;
 }
 .st-button--info .st-ripples-append {
+  height: 40px;
+  width: 50px;
   position: absolute;
   background: #d3d4d6;
   transform: translate(-50%, -50%);
   pointer-events: none;
   border-radius: 50%;
-  animation: st-ripples-ani 0.7s linear infinite;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--info .st-loader > .st-dot::before {
+  background-color: #b7b9bd !important;
+}
+
+.st-button--dark {
+  color: #FFFFFF;
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+}
+.st-button--dark:hover {
+  background: #0e0d0d;
+  border-color: #0e0d0d;
+  color: #FFFFFF;
+}
+.st-button--dark.is-active {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #FFFFFF;
+}
+.st-button--dark.is-disabled, .st-button--dark.is-disabled:hover, .st-button--dark.is-disabled:focus, .st-button--dark.is-disabled:active {
+  color: #a1a1a1;
+  background-color: #e4e4e4;
+  border-color: transparent;
+  cursor: not-allowed;
+}
+.st-button--dark.is-plain {
+  color: #1d1d1d;
+  background: #e8e8e8;
+  border-color: #a5a5a5;
+}
+.st-button--dark.is-plain:hover {
+  border-color: #141414;
+}
+.st-button--dark.is-plain:active {
+  border-color: #1a1a1a;
+  outline: none;
+}
+.st-button--dark.is-plain.is-disabled, .st-button--dark.is-plain.is-disabled:hover, .st-button--dark.is-plain.is-disabled:focus, .st-button--dark.is-plain.is-disabled:active {
+  color: #a1a1a1;
+  background-color: #FFFFFF;
+  border-color: #a1a1a1;
+  cursor: not-allowed;
+}
+.st-button--dark .st-ripples-append {
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  background: #a5a5a5;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--dark .st-loader > .st-dot::before {
+  background-color: #6c6c6c !important;
+}
+
+.st-button--acent {
+  color: #FFFFFF;
+  background-color: #9c27b0;
+  border-color: #9c27b0;
+}
+.st-button--acent:hover {
+  background: #7d2a8b;
+  border-color: #7d2a8b;
+  color: #FFFFFF;
+}
+.st-button--acent.is-active {
+  background: #8c239e;
+  border-color: #8c239e;
+  color: #FFFFFF;
+}
+.st-button--acent.is-disabled, .st-button--acent.is-disabled:hover, .st-button--acent.is-disabled:focus, .st-button--acent.is-disabled:active {
+  color: #a1a1a1;
+  background-color: #e4e4e4;
+  border-color: transparent;
+  cursor: not-allowed;
+}
+.st-button--acent.is-plain {
+  color: #9c27b0;
+  background: #f5e9f7;
+  border-color: #d7a9df;
+}
+.st-button--acent.is-plain:hover {
+  border-color: #6d1b7b;
+}
+.st-button--acent.is-plain:active {
+  border-color: #8c239e;
+  outline: none;
+}
+.st-button--acent.is-plain.is-disabled, .st-button--acent.is-plain.is-disabled:hover, .st-button--acent.is-plain.is-disabled:focus, .st-button--acent.is-plain.is-disabled:active {
+  color: #a1a1a1;
+  background-color: #FFFFFF;
+  border-color: #a1a1a1;
+  cursor: not-allowed;
+}
+.st-button--acent .st-ripples-append {
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  background: #d7a9df;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: st-ripples-ani 0.7s ease-in-out;
+}
+.st-button--acent .st-loader > .st-dot::before {
+  background-color: #bf73cc !important;
 }
 
 .st-button--medium {
-  padding: 10px 25px;
+  padding: 8px 16px;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .st-button--medium.is-round {
-  padding: 10px 25px;
+  padding: 8px 16px;
 }
 .st-button--medium .st-loader {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 34px;
-  width: 64px;
+  height: 30px;
+  width: 46px;
 }
 .st-button--medium .st-loader .st-dot {
   top: 0;
   left: 0;
   position: absolute;
-  height: 34px;
-  width: 64px;
+  height: 30px;
+  width: 46px;
   animation: animate-loading 3s linear infinite;
 }
 .st-button--medium .st-loader .st-dot::before {
   position: absolute;
   content: "";
-  background-color: #a6a6a6;
   width: 3px;
   height: 3px;
   bottom: 6px;
@@ -579,37 +659,36 @@
   animation-delay: 0.5s;
 }
 .st-button--medium.is-circle {
-  padding: 10px;
+  padding: 8px;
 }
 
 .st-button--small {
-  padding: 9px 18px;
+  padding: 8px 14px;
   font-size: 12px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 .st-button--small.is-round {
-  padding: 9px 18px;
+  padding: 8px 14px;
 }
 .st-button--small .st-loader {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 30px;
-  width: 48px;
+  height: 28px;
+  width: 40px;
 }
 .st-button--small .st-loader .st-dot {
   top: 0;
   left: 0;
   position: absolute;
-  height: 30px;
-  width: 48px;
+  height: 28px;
+  width: 40px;
   animation: animate-loading 3s linear infinite;
 }
 .st-button--small .st-loader .st-dot::before {
   position: absolute;
   content: "";
-  background-color: #a6a6a6;
   width: 3px;
   height: 3px;
   bottom: 6px;
@@ -632,37 +711,36 @@
   animation-delay: 0.5s;
 }
 .st-button--small.is-circle {
-  padding: 9px;
+  padding: 8px;
 }
 
 .st-button--mini {
-  padding: 7px 12px;
+  padding: 6px 12px;
   font-size: 12px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 .st-button--mini.is-round {
-  padding: 7px 12px;
+  padding: 6px 12px;
 }
 .st-button--mini .st-loader {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 26px;
+  height: 24px;
   width: 36px;
 }
 .st-button--mini .st-loader .st-dot {
   top: 0;
   left: 0;
   position: absolute;
-  height: 26px;
+  height: 24px;
   width: 36px;
   animation: animate-loading 3s linear infinite;
 }
 .st-button--mini .st-loader .st-dot::before {
   position: absolute;
   content: "";
-  background-color: #a6a6a6;
   width: 3px;
   height: 3px;
   bottom: 6px;
@@ -685,15 +763,15 @@
   animation-delay: 0.5s;
 }
 .st-button--mini.is-circle {
-  padding: 7px;
+  padding: 6px;
 }
 
 .st-button--text {
   border-color: transparent;
   color: #285de6;
   background: transparent;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .st-button--text:hover, .st-button--text:focus {
   color: #94aef3;

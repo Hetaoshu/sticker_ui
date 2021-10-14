@@ -8,46 +8,38 @@
 @include b(button){
   //默认样式为primary-medium
   @extend %default-button;
-  @include button-color($--color-white, $--color-primary, $--color-primary);
+  @include button-color($--color-white, $--color-primary, $--color-primary,$--color-primary-deep);
   @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
-  //朴素按钮
-  // @include when(plain) {
-  //   &:hover,
-  //   &:focus {
-  //     background: $--color-white;
-  //     border-color: $--color-primary;
-  //     color: $--color-primary;
-  //   }
-
-  //   &:active {
-  //     background: $--color-white;
-  //     border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-  //     color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-  //     outline: none;
-  //   }
-  // }
   @include when(round) {
     border-radius: 20px;
-    padding: 12px 23px;
+  }
+  @include when(shadow) {
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
   }
   @include when(circle) {
     border-radius: 50%;
     padding: $--button-padding-vertical;
   }
   @include m(primary){
-    @include button-color($--color-white, $--color-primary, $--color-primary);
+    @include button-color($--color-white, $--color-primary, $--color-primary,$--color-primary-deep);
   }
   @include m(success) {
-    @include button-color($--color-white, $--color-success, $--color-success);
+    @include button-color($--color-white, $--color-success, $--color-success,$--color-success-deep);
   }
   @include m(warning) {
-    @include button-color($--color-white, $--color-warning, $--color-warning);
+    @include button-color($--color-white, $--color-warning, $--color-warning,$--color-warning-deep);
   }
   @include m(danger) {
-    @include button-color($--color-white, $--color-danger, $--color-danger);
+    @include button-color($--color-white, $--color-danger, $--color-danger,$--color-danger-deep);
   }
   @include m(info) {
-    @include button-color($--color-white, $--color-info, $--color-info);
+    @include button-color($--color-white, $--color-info, $--color-info,$--color-info-deep);
+  }
+  @include m(dark) {
+    @include button-color($--color-white,$--color-black-light,$--color-black-light,$--color-black-darker);
+  }
+  @include m(acent) {
+    @include button-color($--color-white, $--color-acent, $--color-acent,$--color-acent-deep);
   }
   @include m(medium) {
     @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
@@ -71,8 +63,8 @@
     border-color: transparent;
     color: $--color-primary;
     background: transparent;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 
     &:hover,
     &:focus {
