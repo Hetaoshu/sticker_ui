@@ -1,0 +1,47 @@
+@import "mixins/mixins";
+@import "common/var";
+@import "fragments/dialog_default";
+
+@include b(dialog) {
+    @extend %dialog-default;
+    @include e(mask) {
+        @extend %dialog-mask-default;
+      }
+    @include e(header) {
+        @extend %dialog-header-default;
+    }
+    @include e(body) {
+        @extend %dialog-body-default;
+      }
+    @include e(footer) {
+        @extend %dialog-footer-default;
+      }
+}
+.dialog-fade-enter-active {
+    animation: dialog-fade-in .3s;
+  }
+  
+.dialog-fade-leave-active {
+    animation: dialog-fade-out .3s;
+}
+@keyframes dialog-fade-in {
+    0% {
+        transform: scale(0);
+       opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes dialog-fade-out {
+    0% {
+        transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+      opacity: 0;
+    }
+  }

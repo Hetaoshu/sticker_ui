@@ -3,7 +3,7 @@
 @import "mixins/_button";
 @import "mixins/mixins";
 @import "mixins/utils";
-@import "common/fragment";
+@import "fragments/button_default";
 
 @include b(button){
   //默认样式为primary-medium

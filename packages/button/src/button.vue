@@ -58,7 +58,8 @@ module.exports = {
         type: String,
         default: 'button'
       },
-      iconPosition: {
+ 
+      'icon-position': {
         type: String,
         default: 'left'
       },
@@ -107,6 +108,7 @@ module.exports = {
       },
       handleClick(evt) {
         this.$emit('click', evt);
+        
       }
     }
   };

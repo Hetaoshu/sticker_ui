@@ -101,4 +101,16 @@ $--button-mini-border-radius: #{$--border-radius-base - 1} !default;
 $--button-mini-padding-vertical: 6px !default;
 $--button-mini-padding-horizontal: 12px !default;
 
+//dialog弹窗相关
+$--dialog-background-color: $--color-white !default;
+$--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
+/// fontSize||Font|1
+$--dialog-title-font-size: $--font-size-large !default;
+/// fontSize||Font|1
+$--dialog-content-font-size: 14px !default;
+/// fontLineHeight||LineHeight|2
+$--dialog-font-line-height: $--font-line-height-primary !default;
+/// padding||Spacing|3
+$--dialog-padding-primary: 20px !default;
+
 

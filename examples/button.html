@@ -28,8 +28,8 @@
         <div class="group" >
             <el-button  :loading="true" shadow  type="acent"  size="medium"  >阴影按钮</el-button>
             <el-button @click="test" :loading="loadingStatus" shadow  type="acent"  size="medium"  >阴影按钮</el-button>
-            <el-button  icon="st-icon-edit" shadow  type="dark"  size="medium"  >阴影按钮</el-button>
-            <el-button   shadow  type="danger"  size="medium"  >阴影按钮</el-button>
+            <el-button  icon="st-icon-questionfill" icon-position="right" shadow  type="dark"  size="medium"  >阴影按钮</el-button>
+            <el-button icon="st-icon-edit"  shadow  type="danger"  size="medium"  >阴影按钮</el-button>
             <el-button shadow type="primary" size="medium"  >阴影按钮</el-button>
             <el-button shadow type="success" size="medium"  >阴影按钮</el-button>
             <el-button shadow type="warning" size="medium"  >阴影按钮</el-button>
@@ -37,23 +37,23 @@
         </div>
         <div class="group" >
             <el-button   type="success"  size="medium" :loading="true"  >危险按钮</el-button>
-            <el-button   type="dark"  size="medium"  >危险按钮</el-button>
+            <el-button icon="st-icon-questionfill" icon-position="right"  type="dark"  size="medium"  >危险按钮</el-button>
             <el-button   type="acent" size="medium"  >危险按钮</el-button>
             <el-button  type="danger"  size="medium"  >危险按钮</el-button>
             <el-button  type="primary" size="medium"  >危险按钮</el-button>
-            <el-button  type="success" size="medium"  >危险按钮</el-button>
+            <el-button icon="st-icon-questionfill" icon-position="right" type="success" size="medium"  >危险按钮</el-button>
             <el-button  type="warning" size="medium"  >危险按钮</el-button>
             <el-button  type="info" size="medium"  >危险按钮</el-button>
         </div>
         <div class="group" >
             <el-button  type="acent"  @click="test" plain :loading="true"  >朴素按钮</el-button>
-            <el-button  type="dark"  @click="test" plain >朴素按钮</el-button>
+            <el-button icon="st-icon-questionfill" icon-position="right" type="dark"  @click="test" plain >朴素按钮</el-button>
             <el-button  type="acent"  @click="test" plain >朴素按钮</el-button>
             <el-button  type="success"  @click="test" plain >朴素按钮</el-button>
             <el-button  type="primary"  @click="test" plain >朴素按钮</el-button>
             <el-button  type="danger"  @click="test" plain >朴素按钮</el-button>
             <el-button  type="warning"  @click="test" plain >朴素按钮</el-button>
-            <el-button  type="info"  @click="test" plain >朴素按钮</el-button>
+            <el-button icon="st-icon-questionfill" icon-position="right"  type="info"  @click="test" plain >朴素按钮</el-button>
         </div>
         <div class="group" >
             <el-button  :loading="true" type="danger"  @click="test" plain round >朴素圆角</el-button>
@@ -81,18 +81,18 @@
             <el-button  type="success" size="medium"  >大号按钮</el-button>
             <el-button  type="danger" size="small"  >小号按钮</el-button>
             <el-button  type="primary" size="mini"  >最小号按钮</el-button>
-            <el-button :loading="loadingStatus" @click="test" type="text" size="mini"  >文本按钮</el-button>
+            <el-button :loading="loadingStatus" @click="test" type="text" size="mini" icon="st-icon-questionfill" icon-position="right" >文本按钮</el-button>
         </div>
         <div class="group" >
             <el-button disabled type="warning" size="small" plain >朴素禁用</el-button>
             <el-button disabled type="warning" size="small" round >圆角禁用</el-button>
-            <el-button disabled type="warning" size="small"  >标准禁用</el-button>
+            <el-button disabled type="warning" size="small" icon="st-icon-questionfill" icon-position="right" >标准禁用</el-button>
         </div>
         <div class="group" >
             <el-button :loading="true"  type="warning" size="small" circle >载</el-button>
             <el-button @click="test" :loading="loadingStatus"  disabled type="warning" size="small" circle >圆</el-button>
             <el-button  type="warning" size="small" circle >角</el-button>
-            <el-button  type="success" size="small" circle >已</el-button>
+            <el-button icon="st-icon-questionfill" icon-position="right" type="success" size="small" circle ></el-button>
             <el-button disabled type="info" size="small" circle >禁</el-button>
         </div>
         <!-- <span class="st-icon-loading" ></span>

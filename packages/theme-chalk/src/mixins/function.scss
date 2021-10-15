@@ -1,16 +1,17 @@
 @import "config";
 
-/* BEM support Func
+/* BEM support Func inspect为一个插件
  -------------------------- */
 @function selectorToString($selector) {
   $selector: inspect($selector);
+  /*截取el-xxxxx--xxx 第二位和倒数第二位中间的（todo）*/
   $selector: str-slice($selector, 2, -2);
   @return $selector;
 }
 
 @function containsModifier($selector) {
   $selector: selectorToString($selector);
-
+  /*判断$selector中是否包含--（todo）*/
   @if str-index($selector, $modifier-separator) {
     @return true;
   } @else {
@@ -20,7 +21,7 @@
 
 @function containWhenFlag($selector) {
   $selector: selectorToString($selector);
-
+  /*判断$selector中是否包含is-（todo）*/
   @if str-index($selector, '.' + $state-prefix) {
     @return true
   } @else {
@@ -30,7 +31,7 @@
 
 @function containPseudoClass($selector) {
   $selector: selectorToString($selector);
-
+  /*判断$selector中是否包含：（todo）*/
   @if str-index($selector, ':') {
     @return true
   } @else {
